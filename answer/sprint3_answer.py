@@ -26,7 +26,7 @@ def get_lottery_num(temp_total_num, temp_lottery_num):
     random.shuffle(pool)
 
     for j in range(int(temp_lottery_num)):
-        print("todo1#{}:\t{}".format(j+1, pool[j]+1))
+        print("中獎號碼#{}:\t{}".format(j+1, pool[j]+1))
         lottery_pool.append(pool[j]+1)
 
     return lottery_pool
@@ -71,10 +71,10 @@ def get_TWlottery_num():
     random.shuffle(pool)
 
     for j in range(6):
-        print("todo2#{}:\t{}".format(j+1, pool[j]+1))
+        print("中獎號碼#{}:\t{}".format(j+1, pool[j]+1))
         lottery_pool.append(pool[j]+1)
 
-    print("todo3:\t{}".format(pool[6]+1))
+    print("特別號碼:\t{}".format(pool[6]+1))
     lottery_pool.append(pool[6]+1)
 
     return lottery_pool
@@ -99,7 +99,7 @@ def compare_TWlottery_num(temp_choice, temp_twlottery):
 
     result_num = compare_lottery_num(temp_choice, normal_num)
 
-    print("todo4")
+    print(" ----------------------")
 
     if result_num == 3:
         print("|     『恭喜中普獎』     |")
@@ -144,14 +144,14 @@ if __name__ == '__main__':
     total_choice = list()
 
     while True:
-        print("todo5")
+        print("請輸入自己的號碼(玩一次350元)")
         money -= 350
 
         for i in range(6):
             while True:
-                choice = input("todo6{}:\t".format( i+1))
+                choice = input("自選號碼{}:\t".format( i+1))
                 if compare_single_num(choice, total_choice):
-                    print("todo7")
+                    print("已經有此號碼，請重新輸入！")
 
                 else:
                     if int(choice) <= 49 and int(choice) > 0:
@@ -159,10 +159,10 @@ if __name__ == '__main__':
                         break
 
                     elif int(choice) == -1:
-                        print("todo8")
+                        print("遊戲已結束")
                         sys.exit(0)
                     else:
-                        print("todo9")
+                        print("請輸入範圍內的號碼")
                         continue
 
         final_lottery_num = get_TWlottery_num()
@@ -177,7 +177,7 @@ if __name__ == '__main__':
 
 
         money += compare_TWlottery_num(total_choice, final_lottery_num)
-        print("todo10")
+        print(" ----------------------")
         print("|現在持有現金為 {} 元   |".format( money))
         print(" ======================")
 
